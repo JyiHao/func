@@ -1,0 +1,97 @@
+<html>
+    <head>
+    </head>
+    <body bgcolor="#000011" style="text-align:center">
+        <h1 style="color:#90c0ff">函数工具</h1>
+        <p style="color:rgb(101, 127, 161)">二次函数工具</p>
+        <input id="anum" type="number" placeholder="二次项系数">
+        <input id="bnum" type="number" placeholder="一次项系数">
+        <input id="cnum" type="number" placeholder="常数项">
+        <input id="astart" type="button" value="开始(y=ax²+bx+c)" >
+        <br><br>
+        <input id="aanum" type="number" placeholder="二次项系数">
+        <input id="hnum" type="number" placeholder="h">
+        <input id="knum" type="number" placeholder="k">
+        <input id="bstart" type="button" value="开始(y=a(x-h)²+k)" >
+        <br><p style="color:rgb(101, 127, 161)">表格信息</p>
+        <input id="xs" type="number" placeholder="表格最小x">
+        <input id="xm" type="number" placeholder="表格项数">
+        <input id="xad" type="number" placeholder="表格x差">
+        <div id="wrdi">
+            <p  style="color:rgb(101, 127, 161)" id="ddsss"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis0"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis1"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis2"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis3"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis4"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis5"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis6"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis7"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis8"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis9"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis10"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis11"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis12"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis13"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis14"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis15"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis16"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis17"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis18"></p>
+            <p  style="color:rgb(101, 127, 161)" id="lis19"></p>
+        </div>
+        <div>
+            <script type="text/javascript">
+                var btn1 = document.getElementById("astart");  
+                btn1.onclick =function(){
+                    var a = Number(document.getElementById("anum").value)
+                    var b = Number(document.getElementById("bnum").value)
+                    var c = Number(document.getElementById("cnum").value)
+                    var xmin = Number(document.getElementById("xs").value)
+                    var xtm = Number(document.getElementById("xm").value)
+                    var xadd = Number(document.getElementById("xad").value)
+                    var h = 0-(b/2*a)
+                    var k = ((4*a*c)-(b^2))/(4*a)
+                    var ddsa = ("顶点式: "+"y="+String(a)+"(x-"+String(h)+")"+"+"+String(k))
+                    var ddsb = ("顶点式: "+"y="+String(a)+"(x+"+String(0-h)+")"+"+"+String(k))
+                    if(h>0){
+                        document.getElementById("ddsss").innerHTML = ddsa
+                    } else {if(h=0) {
+                        document.getElementById("ddsss").innerHTML = "顶点式: "+"y="+String(a)+"x"+"+"+String(k)
+                        } else {
+                        document.getElementById("ddsss").innerHTML = ddsb
+                        }
+                    }
+                    var xee=xmin
+                    for (i=0;i<xtm;i++){
+                        document.getElementById("lis"+String(xee-xmin)).innerHTML = "x="+String(xee)+"; y="+String((((xee-h)^2)*a)-k)
+                        xee=xee+xadd
+                    }
+                }
+                var btn2 = document.getElementById("bstart");  
+                btn2.onclick =function(){
+                    var xmin = Number(document.getElementById("xs").value)
+                    var xtm = Number(document.getElementById("xm").value)
+                    var xadd = Number(document.getElementById("xad").value)
+                    var h = Number(document.getElementById("hnum").value)
+                    var k = Number(document.getElementById("knum").value)
+                    var ddsa = ("顶点式: "+"y="+String(a)+"(x-"+String(h)+")"+"+"+String(k))
+                    var ddsb = ("顶点式: "+"y="+String(a)+"(x+"+String(0-h)+")"+"+"+String(k))
+                    if(h>0){
+                        document.getElementById("ddsss").innerHTML = ddsa
+                    } else {if(h=0) {
+                        document.getElementById("ddsss").innerHTML = "顶点式: "+"y="+String(a)+"x"+"+"+String(k)
+                        } else {
+                        document.getElementById("ddsss").innerHTML = ddsb
+                        }
+                    }
+                    var xee=xmin
+                    for (i=0;i<xtm;i++){
+                        document.getElementById("lis"+String(xee+10)).innerHTML = "x="+String(xee)+"; y="+String((((xee-h)^2)*a)-k)
+                        xee=xee+xadd
+                    }
+                }
+            </script>
+        </div>
+    </body> 
+</html>
